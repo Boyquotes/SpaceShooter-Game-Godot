@@ -20,6 +20,8 @@ func aplica_dano(valor):
 	get_node("anim").play("hit")
 	vida -= valor
 	if vida<= 0:
+		set_process(false)
+		set_z(10)
 		remove_from_group(game.GRUPO_INIMIGO)
 		get_node("anim").play("destroy")
 	pass

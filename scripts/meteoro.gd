@@ -24,4 +24,5 @@ func aplica_dano(valor):
 		set_z(10)
 		remove_from_group(game.GRUPO_INIMIGO)
 		get_node("anim").play("destroy")
+		game.getCamera().shake()
 	pass

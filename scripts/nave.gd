@@ -1,4 +1,4 @@
-extends Node2D 
+extends Area2D 
 
 var vel = 300
 var arma
@@ -6,6 +6,8 @@ var arma
 func _ready(): #primeira função que é executada quando o objeto é carregado no jogo
 	set_process(true)#informa que objeto é processado, vai movimentar
 	arma = tiro_simples.new(self)
+	#adiciona a nave no grupo nave
+	add_to_group(game.GRUPO_NAVE)
 	pass
 	
 #delta da função é o tempo que passou entre o quadro anterior e o próximo, usado para manter a velocidade igual em qualquer computador
@@ -35,7 +37,13 @@ func _process(delta):#função executada a cada quadro do jogo (60/seg)
 		
 	pass
 
-
+func set_arma(valor):
+	if valor == 0:
+		arma = tiro_rapido.new(self)
+	elif valor == 1:
+		arma = tiro_duplo.new(self)
+		
+	pass
 
 class tiro_duplo:
 	#tiro precisa ser carregado na memória

@@ -1,11 +1,88 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://scripts/nave.gd" type="Script" id=1]
 [ext_resource path="res://sprites/playerShip1_blue.png" type="Texture" id=2]
 [ext_resource path="res://sprites/Parts/gun09.png" type="Texture" id=3]
 
-[node name="nave" type="Node2D"]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
+custom_solver_bias = 0.0
+points = Vector2Array( 48.1749, -5.39669, 45.547, 24.3862, 39.1232, 17.6704, 38.2473, -1.30885 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -40.8817, 20.5903, -45.8455, 24.0942, -50.2253, -5.68868, -44.6775, -6.27266, -40.0057, 0.443085 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -22.7784, 25.8461, -22.4864, 33.4378, -40.0057, 32.5618, -40.8817, 20.5903, -40.0057, 0.443085 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 30.9475, -17.3682, 38.2473, -1.30885, 39.1232, 17.6704, 39.1232, 33.4378, 22.1879, 32.8538, 21.0199, 25.2621, 21.6039, -6.56464, 25.1078, -16.7842 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -40.0057, 0.443085, -30.0781, -16.2003, -25.9903, -17.0762, -23.0704, -5.98067, -22.7784, 25.8461 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -11.9748, -12.6964, -8.17895, -36.9315, 7.29646, -37.5154, 11.3843, -12.9884, -12.8508, 27.0141 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -12.8508, 27.0141, -22.7784, 25.8461, -23.0704, -5.98067, -11.9748, -12.6964 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 8.17242, 36.9417, -7.59497, 36.6497, -12.8508, 27.0141, 11.3843, -12.9884, 21.6039, -6.56464, 11.6763, 27.598 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 21.0199, 25.2621, 11.6763, 27.598, 21.6039, -6.56464 )
+
+[node name="nave" type="Area2D"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 2 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 3 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 4 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/3/trigger = false
+shapes/4/shape = SubResource( 5 )
+shapes/4/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/4/trigger = false
+shapes/5/shape = SubResource( 6 )
+shapes/5/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/5/trigger = false
+shapes/6/shape = SubResource( 7 )
+shapes/6/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/6/trigger = false
+shapes/7/shape = SubResource( 8 )
+shapes/7/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/7/trigger = false
+shapes/8/shape = SubResource( 9 )
+shapes/8/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/8/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
 script/script = ExtResource( 1 )
 
 [node name="sprite" type="Sprite" parent="."]
@@ -40,5 +117,12 @@ transform/pos = Vector2( 0, -47.5517 )
 [node name="posCanC1" type="Position2D" parent="."]
 
 transform/pos = Vector2( 0, -47.5517 )
+
+[node name="poly" type="CollisionPolygon2D" parent="."]
+
+build_mode = 0
+polygon = Vector2Array( -45.8455, 24.0942, -50.2253, -5.68868, -44.6775, -6.27266, -40.0057, 0.443085, -30.0781, -16.2003, -25.9903, -17.0762, -23.0704, -5.98067, -11.9748, -12.6964, -8.17895, -36.9315, 7.29646, -37.5154, 11.3843, -12.9884, 21.6039, -6.56464, 25.1078, -16.7842, 30.9475, -17.3682, 38.2473, -1.30885, 48.1749, -5.39669, 45.547, 24.3862, 39.1232, 17.6704, 39.1232, 33.4378, 22.1879, 32.8538, 21.0199, 25.2621, 11.6763, 27.598, 8.17242, 36.9417, -7.59497, 36.6497, -12.8508, 27.0141, -22.7784, 25.8461, -22.4864, 33.4378, -40.0057, 32.5618, -40.8817, 20.5903 )
+shape_range = Vector2( 0, 8 )
+trigger = false
 
 

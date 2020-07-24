@@ -2,7 +2,7 @@ extends Area2D
 
 var vel = 100
 var rot = 0
-var vida = 4
+var vida = 2
 
 func _ready():
 	add_to_group(game.GRUPO_INIMIGO)

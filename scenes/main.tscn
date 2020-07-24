@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://scenes/nave.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/meteor_spawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sprites/Effects/star1.png" type="Texture" id=3]
+[ext_resource path="res://scenes/power_up_tiro_rapido.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/power_up_tiro_duplo.tscn" type="PackedScene" id=5]
 
 [sub_resource type="GDScript" id=1]
 
@@ -507,5 +509,13 @@ texture = ExtResource( 3 )
 transform/pos = Vector2( 497.351, 425.37 )
 transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
+
+[node name="power_up_tiro_rapido" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 531.091, 424.463 )
+
+[node name="power_up_tiro_duplo" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 92.2746, 422.412 )
 
 
